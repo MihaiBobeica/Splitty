@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane onKeyPressed="#onGlobalKeyPress" prefHeight="340.0" prefWidth="650.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.scenes.AddEditExpenseCtrl">
+    <children>
+          <Text fx:id="header" layoutX="30.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Expense">
+              <font>
+                  <Font name="System Bold" size="20.0" />
+              </font>
+          </Text>
+          <Text fx:id="errorText" fill="RED" layoutX="31.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error Text" />
+            <Label fx:id="whoPaid" layoutX="30.0" layoutY="77.0" text="Who paid?*">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+            <Label fx:id="whatFor" layoutX="30.0" layoutY="114.0" text="What for?*">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+            <Label fx:id="howMuch" layoutX="30.0" layoutY="152.0" text="How much?*">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+            <Label fx:id="when" layoutX="30.0" layoutY="190.0" text="When?">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+            <ComboBox fx:id="whoPaidDropdown" layoutX="167.0" layoutY="73.0" prefHeight="25.0" prefWidth="141.0" promptText="Choose..." />
+            <TextField fx:id="whatForField" layoutX="167.0" layoutY="110.0" prefHeight="25.0" prefWidth="190.0" promptText="Drinks" />
+            <ComboBox fx:id="currencyDropdown" disable="true" layoutX="167.0" layoutY="148.0" prefHeight="26.0" prefWidth="65.0" promptText="€" visibleRowCount="0">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="€" />
+                        <String fx:value="$" />
+                        <String fx:value="£" />
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <TextField fx:id="howMuchField" layoutX="238.0" layoutY="149.0" prefHeight="25.0" prefWidth="63.0" />
+            <DatePicker fx:id="whenPicker" editable="false" layoutX="167.0" layoutY="186.0" prefHeight="25.0" prefWidth="120.0" promptText="01/01/2024" />
+            <Label fx:id="splitBetween" layoutX="382.0" layoutY="66.0" text="Split between:">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+        <Label fx:id="expenseType" layoutX="31.0" layoutY="229.0" text="Expense Type">
+            <font>
+                <Font size="14.0" />
+            </font></Label>
+       <TextField fx:id="expenseTypeField" disable="true" layoutX="167.0" layoutY="226.0" promptText="food, restaurant" />
+      <Button fx:id="everyoneButton" disable="true" layoutX="510.0" layoutY="65.0" mnemonicParsing="false" onAction="#selectEveryone" styleClass="secondary-button" text="Select Everyone">
+         <font>
+            <Font size="10.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView glyphName="CHECK" />
+         </graphic></Button>
+      <ScrollPane layoutX="416.0" layoutY="94.0" prefHeight="155.0" prefWidth="204.0">
+         <content>
+                <VBox fx:id="checkboxContainer" maxWidth="1.7976931348623157E308" spacing="10.0">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </VBox>
+         </content>
+      </ScrollPane>
+            <Button fx:id="abortButton" layoutX="425.0" layoutY="293.0" mnemonicParsing="false" onAction="#goBack" styleClass="back-button" text="Abort">
+         <graphic>
+            <FontAwesomeIconView glyphName="TIMES" styleClass="primary-icon" />
+         </graphic></Button>
+            <Button fx:id="addButton" layoutX="510.0" layoutY="293.0" mnemonicParsing="false" onAction="#submit" prefHeight="28.0" prefWidth="48.0" styleClass="primary-button" text="OK">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Text fx:id="required" layoutX="31.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*required">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Text>
+    </children>
+</AnchorPane>
